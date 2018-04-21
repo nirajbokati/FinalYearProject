@@ -15,7 +15,6 @@ namespace tour.Models
     {
         public int BookingId { get; set; }
         public int TourId { get; set; }
-        public int UserId { get; set; }
         public string UserName { get; set; }
         public string Contact { get; set; }
         public string Email { get; set; }

@@ -6,18 +6,23 @@
     <title>@ViewBag.Title</title>
     <link href="~/Content/admincustom.css" rel="stylesheet" />
     <link href="~/Content/AdminSidebar.css" rel="stylesheet" />
+
+
     <link href="~/Content/bootstrap.min.css" rel="stylesheet" />
     <link href="~/Content/AddDestination.css" rel="stylesheet" />
 
     <script src="~/Scripts/bootstrap.min.js"></script>
+    <script src="~/Scripts/jquery-1.10.2.js"></script>
     <script src="~/Scripts/jquery-1.10.2.min.js"></script>
-   
-
-   
-
+    <script src="~/Scripts/bootstrap.js"></script>
 
     <style>
         body {
+            background-color: #eee;
+            overflow-x: hidden;
+        }
+
+        .row {
             background-color: #eee;
         }
 
@@ -67,6 +72,43 @@
             position: -webkit-sticky;
             position: sticky;
             top: 0;
+            margin-left: 10px;
+        }
+
+       #account {
+            color: #fff;
+            padding:10px!important;
+            
+        }
+
+        .dropdown > .btn {
+          
+            color:#fff;
+            margin-top:10px;
+        }
+
+        .btn-primary {
+          margin-left:-50px!important;
+            color: #000 !important;        
+        }
+
+        .dropdown-menu{
+            margin-left:-50px!important;
+        }
+        
+        .btn-sm {
+            width: 100% !important;
+            padding: 2px !important;
+            border: none;
+        }
+
+        .topbar {
+            background-color: #fff;
+            height: 50px;
+        }
+
+        .caret{
+            color:#fff!important;
         }
     </style>
 
@@ -78,20 +120,46 @@
                 <div class="bs bs-pricing">
                     <div class="cotent">
                         <h3>Tour Planner</h3>
-                        <img src="Content/Images/admin.png" width="80" height="80" />
-                        <h5 class="category">Admin Name <span class="caret"></span></h5>
+                        <img src="~/Content/Images/admin.png" width="80" height="80" />
+                        <h5 class="category">Admin Name </h5>
                         <hr />
                         <ul>
-                            <li><a href="index.html">Dashboard </a></li>
-                            <li><a href="AddDestination.html">Add Destination </a></li>
-                            <li><a href="AddDestinationDetail.html"> Add Destination Detail</a></li>
-
-                            <li><a href="BookingDetails.html">Booking Details </a></li>
+                            <li><a href="/Admin/Index" class="index">Home </a></li>
+                            <li><a href="/Admin/bookinglist" class="bookinglist">Booked Package </a></li>
+                            <li><a href="/Admin/packagelist" class="packagelist"> Package List</a></li>
                         </ul>
                     </div>
                 </div>
             </section>
         </div>
+
+        <div class="col-lg-1 col-lg-offset-8 dropdown">
+            <button class="btn btn-primary dropdown-toggle" type="button" data-toggle="dropdown">
+                <span id="account">Account</span> 
+                <span class="caret"></span>
+            </button>
+            <ul class="dropdown-menu">
+                <li>
+                    <a href="#">
+                        <button class="btn btn-default btn-sm">General Settings </button>
+
+                    </a>
+                </li>
+                <li>
+                    <a href="#">
+                        <button class="btn btn-default btn-sm"> Privacy Settings </button>
+
+                    </a>
+                </li>
+                <li>
+                    <a href="#">
+                        <button class="btn btn-default btn-sm"> Logout </button>
+                    </a>
+                </li>
+            </ul>
+        </div>
+
+       
 
         @RenderBody()
     </div>

@@ -27,7 +27,7 @@ namespace RoleBaseAccessibility.Controllers
         /// <summary>
         /// Database Store property.
         /// </summary>
-        private TourBookingEntities1 databaseManager = new TourBookingEntities1();
+        private TourBookingEntities2 databaseManager = new TourBookingEntities2();
 
         #endregion
 

@@ -9,7 +9,7 @@ namespace tour.Controllers
     [Authorize]
     public class PackageController : HomeController
     {
-        private TourBookingEntities1 _tour = new TourBookingEntities1();
+        private TourBookingEntities2 _tour = new TourBookingEntities2();
 
         // GET: Package
         public ActionResult List()

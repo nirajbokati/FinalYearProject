@@ -16,12 +16,10 @@ namespace tour.Models
     {
         public int BookingId { get; set; }
         public int TourId { get; set; }
-        public int UserId { get; set; }
         public string UserName { get; set; }
         public string Contact { get; set; }
         public string Email { get; set; }
         public string Remark { get; set; }
         public string DetailInfo { get; set; }
-        public Nullable<int> UserId1 { get; set; }
     }
 }

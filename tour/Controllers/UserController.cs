@@ -8,7 +8,7 @@ namespace tour.Controllers
 {
     public class UserController : Controller
     {
-        private TourBookingEntities1 _tour = new TourBookingEntities1();
+        private TourBookingEntities2 _tour = new TourBookingEntities2();
 
         // GET: User
         public ActionResult DashBoard()
@@ -37,6 +37,26 @@ namespace tour.Controllers
                 OfferExclude = d.OfferExclude
             }).ToList();
             return View(p);
+        }
+
+        public ActionResult UserDashBoard()
+        {
+            return View();
+        }
+
+        public ActionResult EditProfile()
+        {
+            return View();
+        }
+
+        public ActionResult ChangePassword()
+        {
+            return View();
+        }
+
+        public ActionResult Overview()
+        {
+            return View();
         }
     }
 }

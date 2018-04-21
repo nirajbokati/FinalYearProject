@@ -121,6 +121,272 @@
             filter: alpha(opacity=50) !important;
         }
 
+
+        ul.social-network {
+            list-style: none;
+            display: inline;
+            margin-left: 0 !important;
+            padding: 0;
+        }
+
+            ul.social-network li {
+                display: inline;
+                margin: 0 5px;
+            }
+
+
+        /*footer social icons */
+        .social-network a.icoRss:hover {
+            background-color: #F56505;
+        }
+
+        .fa {
+            background-color: transparent !important;
+        }
+
+        .social-network a.icoFacebook:hover {
+            background-color: #3B5998;
+        }
+
+        .social-network a.icoTwitter:hover {
+            background-color: #33ccff;
+        }
+
+        .social-network a.icoGoogle:hover {
+            background-color: #BD3518;
+        }
+
+        .social-network a.icoVimeo:hover {
+            background-color: #0590B8;
+        }
+
+        .social-network a.icoLinkedin:hover {
+            background-color: #007bb7;
+        }
+
+        .social-network a.icoInstagram:hover {
+            background-color: orangered;
+        }
+
+            .social-network a.icoRss:hover i, .social-network a.icoFacebook:hover i, .social-network a.icoTwitter:hover i,
+            .social-network a.icoGoogle:hover i, .social-network a.icoVimeo:hover i, .social-network a.icoLinkedin:hover i, .social-network a.icoInstagram:hover i {
+                color: #fff;
+            }
+
+        a.socialIcon:hover, .socialHoverClass {
+            color: #44BCDD;
+        }
+
+        .social-circle li a {
+            display: inline-block;
+            position: relative;
+            margin: 0 auto 0 auto;
+            -moz-border-radius: 50%;
+            -webkit-border-radius: 50%;
+            border-radius: 50%;
+            text-align: center;
+            width: 50px;
+            height: 50px;
+            font-size: 20px;
+        }
+
+        .social-circle li i {
+            margin: 0;
+            line-height: 50px;
+            text-align: center;
+        }
+
+        .social-circle i {
+            color: black;
+            -webkit-transition: all 0.8s;
+            -moz-transition: all 0.8s;
+            -o-transition: all 0.8s;
+            -ms-transition: all 0.8s;
+            transition: all 0.8s;
+        }
+
+
+        footer {
+            /*background-color: #f2f4f7;*/
+            height: 100%;
+            text-align: center;
+        }
+
+        .center {
+            margin-top: 30px !important;
+            text-align: center;
+        }
+
+        .copyright {
+            margin-top: 30px !important;
+            text-align: center;
+        }
+
+        .footer {
+            margin-top: 10px;
+        }
+
+            .footer ul li a {
+                text-decoration: none;
+                list-style-type: none;
+                color: #333;
+                font-weight: 500;
+                font-size: 14px;
+            }
+
+            .footer ul li {
+                text-decoration: none;
+                list-style-type: none;
+                padding: 10px;
+                display: inline-block;
+            }
+
+            .footer h3 {
+                font-size: 20px;
+                font-weight: 700;
+                text-align: center;
+            }
+
+            .footer p {
+                text-align: justify;
+                font-weight: 400;
+                font-size: 14px;
+            }
+
+        .logo {
+            /*border:1px solid #f2f2f2;*/
+        }
+
+        .companyname {
+            font-size: 30px !important;
+            color: #333;
+            font-weight: 600;
+            color: #fb3535;
+        }
+
+        .theme {
+            font-size: 14px;
+            font-weight: 600;
+            font-family: sans-serif;
+        }
+
+        .last {
+            background-color: #f2f4f7;
+        }
+
+        .searchInput {
+            padding: 5px 0px 5px 0px !important;
+            margin-left: 10px;
+        }
+
+        input {
+            outline: none;
+        }
+
+            input[type=search] {
+                -webkit-appearance: textfield;
+                -webkit-box-sizing: content-box;
+                font-family: inherit;
+                font-size: 100%;
+            }
+
+            input::-webkit-search-decoration,
+            input::-webkit-search-cancel-button {
+                display: none; /* remove the search and cancel icon */
+            }
+
+            /* search input field */
+            input[type=search] {
+                border: #fff;
+                padding: 15px 10px 15px 32px;
+                width: 120px;
+                border-radius: 1em;
+                -webkit-transition: all .5s;
+                -moz-transition: all .5s;
+                transition: all .5s;
+                background-color: #fdfefe !important;
+            }
+
+                input[type=search]:focus {
+                    width: 180px;
+                    background-color: #fff !important;
+                    border-color: #e9ebee;
+                }
+
+            /* placeholder */
+            input:-moz-placeholder {
+                color: #999;
+            }
+
+            input::-webkit-input-placeholder {
+                color: #999;
+            }
+
+        /* demo B */
+        #demo-b input[type=search] {
+            width: 15px;
+            padding-left: 10px;
+            color: transparent;
+            cursor: pointer;
+        }
+
+            #demo-b input[type=search]:hover {
+                background-color: #fff;
+            }
+
+            #demo-b input[type=search]:focus {
+                width: 130px;
+                padding-left: 32px;
+                color: #000;
+                background-color: #fff;
+                cursor: auto;
+            }
+
+        #demo-b input:-moz-placeholder {
+            color: transparent;
+        }
+
+        #demo-b input::-webkit-input-placeholder {
+            color: transparent;
+        }
+
+        #logo {
+            font-weight: 500 !important;
+            margin-top:4px;
+            padding-bottom: 5px !important;
+            font-family: Circular,-apple-system,BlinkMacSystemFont,Roboto,Helvetica Neue,sans-serif !important;
+            font-size: 28px !important;
+            line-height: 32px !important;
+            letter-spacing: -0.6px !important;
+            padding-top: 2px !important;
+            padding-bottom: 2px !important;
+            color: #484848 !important;
+            text-decoration: none;
+        }
+            #logo:hover {
+                color: #f44336 !important;
+                text-decoration:none;
+            }
+
+            .companyname{
+                text-decoration:none!important;
+            }
+
+        navbar-default {
+            background-color: #f8f8f8;
+            border-color: #e7e7e7;
+        }
+
+        .navbar-header {
+            padding-top: 5px;
+        }
+
+        .navbar-nav > li > a {
+            padding-top: 23px;
+            padding-bottom: 15px;
+            margin: 0px 5px 0px 5px;
+           
+        }
        
        
     </style>
@@ -134,7 +400,7 @@
                     <span class="icon-bar"></span>
                     <span class="icon-bar"></span>
                 </button>
-                <a href="/Home/Index"> <h2 id="logo"> Tour Planner </h2> </a>
+                <a class="companyname" href="/Home/Index"> <h4 id="logo"> Tour Planner </h4> </a>
             </div>
             <form class="pull-left searchInput">
                 <input type="search" placeholder="Search">
@@ -146,6 +412,7 @@
                 <ul class="nav navbar-nav pull-right">
                     <li> <a href="/Home/Index"> Home</a></li>
                     <li> <a href="#"> Login</a></li>
+                    <li> <a href="/Home/Register"> Register</a></li>
                     <li> <a href="/Home/Destination"> Destination</a></li>
                     <li> <a href="/User/Booking"> Dashboard</a></li>
                 </ul>
@@ -157,9 +424,59 @@
     <div class="body-content">
         @RenderBody()
         <hr />
+       
         <footer>
-            <p>&copy; @DateTime.Now.Year - My ASP.NET Application</p>
+            <div class="footer-content" style="border-top:1px solid #f2f2f2; margin-top:100px;">
+                <div class="container-fluid">
+                    <div class="row footer">
+                        <div class="col-lg-3 col-lg-offset-1">
+                            <div class="logo">
+                                <h3 class="text-center companyname"> Tour Planner</h3>
+                                <h5 class="theme"> Explore Beyond Limits</h5>
+                                <img src="~/Content/Images/air.png" style="height:80px!important; width:70px!important;" />
+                                <img src="~/Content/Images/backpack.png" style="height:60px!important; width:60px!important;" />
+                            </div>
+                        </div>
+                        <div class="col-lg-4">
+                            <h3 class="text-center">About Us</h3>
+                            <p>
+                                Building Consensus among your Senior leaders to leverage
+                                your digital strengths and work on gaps which are hindering your
+                                growth.  Building Consensus among your Senior leaders to leverage your digital strengths and work on gaps which are hindering your growth.
+                                <a href="#">More</a>
+                            </p>
+                        </div>
+                        <div class="col-lg-4">
+                            <h3 class="text-center">Quick Navigation</h3>
+                            <ul>
+                                <li><a href="#">Home</a> </li>
+                                <li><a href="#">About</a> </li>
+                                <li><a href="#">Blog</a> </li>
+                                <li><a href="#">Jobs</a> </li>
+                            </ul>
+                        </div>
+
+
+                    </div>
+                </div>
+                <div class="row last" style="border-top:1px solid #f2f2f2;">
+                    <div class="col-lg-6 copyright">
+                        <p>&copy; @DateTime.Now.Year - Tour Planner</p>
+                    </div>
+                    <div class="col-lg-6">
+                        <div class="center">
+                            <ul class="social-network social-circle">
+                                <li><a href="#" class="icoFacebook" title="Facebook"><i class="fa fa-facebook"></i></a></li>
+                                <li><a href="#" class="icoTwitter" title="Twitter"><i class="fa fa-twitter"></i></a></li>
+                                <li><a href="#" class="icoGoogle" title="Google +"><i class="fa fa-google-plus"></i></a></li>
+                                <li><a href="#" class="icoInstagram" title="Instagram"><i class="fa fa-instagram" aria-hidden="true"></i></a></li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+            </div>
         </footer>
+
     </div>
 
     @Scripts.Render("~/bundles/jquery")

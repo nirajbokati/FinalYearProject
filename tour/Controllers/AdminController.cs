@@ -9,7 +9,7 @@ namespace tour.Controllers
     public class AdminController : Controller
     {
 
-        TourBookingEntities1 tour = new TourBookingEntities1();
+        TourBookingEntities2 tour = new TourBookingEntities2();
         // GET: Admin
         public ActionResult Index()
         {

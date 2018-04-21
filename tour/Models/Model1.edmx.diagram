@@ -4,18 +4,18 @@
   <edmx:Designer xmlns="http://schemas.microsoft.com/ado/2009/11/edmx">
     <!-- Diagram content (shape and connector positions) -->
     <edmx:Diagrams>
-      <Diagram DiagramId="19858f4e249141498f2cddfd7d87d668" Name="Diagram1">
-        <EntityTypeShape EntityType="TourBookingModel.Login" Width="1.5" PointX="3" PointY="0.875" />
-        <EntityTypeShape EntityType="TourBookingModel.Role" Width="1.5" PointX="0.75" PointY="1.125" />
-        <EntityTypeShape EntityType="TourBookingModel.tblBooking" Width="1.5" PointX="0.75" PointY="3.75" />
-        <EntityTypeShape EntityType="TourBookingModel.tblDayActivity" Width="1.5" PointX="2.75" PointY="3.75" />
-        <EntityTypeShape EntityType="TourBookingModel.tblGallery" Width="1.5" PointX="4.75" PointY="3.75" />
-        <EntityTypeShape EntityType="TourBookingModel.tblPackage" Width="1.5" PointX="6.75" PointY="0.75" />
-        <EntityTypeShape EntityType="TourBookingModel.tblReview" Width="1.5" PointX="4.75" PointY="6.75" />
-        <AssociationConnector Association="TourBookingModel.R_10" />
-        <AssociationConnector Association="TourBookingModel.FK_tblDayActivity_tblPackage" />
-        <AssociationConnector Association="TourBookingModel.FK_tblGallery_tblPackage" />
-        <EntityTypeShape EntityType="TourBookingModel.sysdiagram" Width="1.5" PointX="0.75" PointY="7.75" />
+      <Diagram DiagramId="f612f4b8b3a84117920fcecf2476ff1e" Name="Diagram1" ZoomLevel="69">
+        <EntityTypeShape EntityType="TourBookingModel.Login" Width="1.5" PointX="8" PointY="0.875" IsExpanded="true" />
+        <EntityTypeShape EntityType="TourBookingModel.Role" Width="1.5" PointX="5.75" PointY="1.125" IsExpanded="true" />
+        <EntityTypeShape EntityType="TourBookingModel.sysdiagram" Width="1.5" PointX="5.75" PointY="3.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="TourBookingModel.tblBooking" Width="1.5" PointX="5.75" PointY="6.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="TourBookingModel.tblDayActivity" Width="1.5" PointX="3" PointY="1.125" IsExpanded="true" />
+        <EntityTypeShape EntityType="TourBookingModel.tblGallery" Width="1.5" PointX="3" PointY="4.375" IsExpanded="true" />
+        <EntityTypeShape EntityType="TourBookingModel.tblPackage" Width="1.5" PointX="0.75" PointY="2.125" IsExpanded="true" />
+        <EntityTypeShape EntityType="TourBookingModel.tblReview" Width="1.5" PointX="0.75" PointY="7.75" IsExpanded="true" />
+        <AssociationConnector Association="TourBookingModel.R_10" ManuallyRouted="false" />
+        <AssociationConnector Association="TourBookingModel.FK_tblDayActivity_tblPackage" ManuallyRouted="false" />
+        <AssociationConnector Association="TourBookingModel.FK_tblGallery_tblPackage" ManuallyRouted="false" />
       </Diagram>
     </edmx:Diagrams>
   </edmx:Designer>

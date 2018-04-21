@@ -10,7 +10,7 @@ namespace tour.Controllers
     public class HomeController : Controller
     {
 
-        private TourBookingEntities1 _tour = new TourBookingEntities1();
+        private TourBookingEntities2 _tour = new TourBookingEntities2();
         public ActionResult Index()
         {
             return View();
@@ -48,12 +48,19 @@ namespace tour.Controllers
             return View();
         }
 
+
         public ActionResult Destination()
         {
             ViewBag.Message = "Your contact page.";
 
             return View();
         }
+
+        public ActionResult Register()
+        {
+            ViewBag.Messafe = "Registration page";
+            return View();
+        }          
 
     }
 }

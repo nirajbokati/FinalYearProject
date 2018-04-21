@@ -471,7 +471,11 @@
     .navbar ul li a {
         color: #333 !important;
         margin-right:20px;
-        font-weight:600;
+        font-weight:500;
+    }
+
+    footer{
+        background-color:#fff!important;
     }
 </style>
 
@@ -713,7 +717,7 @@ new { enctype = "multipart/form-data" }))
 
                                         <h4 style="text-align:left">Full Name:</h4>
                                         <p>@User.Identity.Name</p>
-                                        @Html.HiddenFor(Model => Model.tblBooking.UserId, new { htmlAttributes = new { @class = "form-control" } })
+                                        @*@Html.HiddenFor(Model => Model.tblBooking.UserId, new { htmlAttributes = new { @class = "form-control" } })*@
                                         @Html.HiddenFor(Model => Model.tblBooking.TourId, new { htmlAttributes = new { @class = "form-control" } })
 
                                     </div>
