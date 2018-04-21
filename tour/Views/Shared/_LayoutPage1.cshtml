@@ -1,0 +1,100 @@
+﻿<!DOCTYPE html>
+
+<html>
+<head>
+    <meta name="viewport" content="width=device-width" />
+    <title>@ViewBag.Title</title>
+    <link href="~/Content/admincustom.css" rel="stylesheet" />
+    <link href="~/Content/AdminSidebar.css" rel="stylesheet" />
+    <link href="~/Content/bootstrap.min.css" rel="stylesheet" />
+    <link href="~/Content/AddDestination.css" rel="stylesheet" />
+
+    <script src="~/Scripts/bootstrap.min.js"></script>
+    <script src="~/Scripts/jquery-1.10.2.min.js"></script>
+   
+
+   
+
+
+    <style>
+        body {
+            background-color: #eee;
+        }
+
+        .bs-pricing-four .bs-pricing .cotent {
+            color: #333 !important;
+        }
+
+        .topbar {
+            margin-left: -14px;
+            width: 79%;
+        }
+
+        a {
+            color: #333 !important;
+        }
+
+        hr {
+            color: #808080;
+        }
+
+        ul {
+            margin-top: 10px;
+        }
+
+        .stylish-input-group .input-group-addon {
+            background: white !important;
+            margin-top: 10px;
+        }
+
+        .stylish-input-group .form-control {
+            border-right: 0;
+            box-shadow: 0 0 0;
+            border-color: #ccc;
+            height: 50px;
+        }
+
+        .stylish-input-group button {
+            border: 0;
+            background: transparent;
+        }
+
+        .navbar {
+            margin-left: 250px;
+        }
+
+        .sidebar {
+            position: -webkit-sticky;
+            position: sticky;
+            top: 0;
+        }
+    </style>
+
+</head>
+<body>
+    <div class="row">
+        <div class="col-lg-2 sidebar">
+            <section id="bs-pricing-six" class="bs-pricing-four roomy-50 bg-white fix">
+                <div class="bs bs-pricing">
+                    <div class="cotent">
+                        <h3>Tour Planner</h3>
+                        <img src="Content/Images/admin.png" width="80" height="80" />
+                        <h5 class="category">Admin Name <span class="caret"></span></h5>
+                        <hr />
+                        <ul>
+                            <li><a href="index.html">Dashboard </a></li>
+                            <li><a href="AddDestination.html">Add Destination </a></li>
+                            <li><a href="AddDestinationDetail.html"> Add Destination Detail</a></li>
+
+                            <li><a href="BookingDetails.html">Booking Details </a></li>
+                        </ul>
+                    </div>
+                </div>
+            </section>
+        </div>
+
+        @RenderBody()
+    </div>
+</body>
+</html>
+

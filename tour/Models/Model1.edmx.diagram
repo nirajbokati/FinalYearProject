@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="utf-8"?>
+<edmx:Edmx Version="3.0" xmlns:edmx="http://schemas.microsoft.com/ado/2009/11/edmx">
+ <!-- EF Designer content (DO NOT EDIT MANUALLY BELOW HERE) -->
+  <edmx:Designer xmlns="http://schemas.microsoft.com/ado/2009/11/edmx">
+    <!-- Diagram content (shape and connector positions) -->
+    <edmx:Diagrams>
+      <Diagram DiagramId="19858f4e249141498f2cddfd7d87d668" Name="Diagram1">
+        <EntityTypeShape EntityType="TourBookingModel.Login" Width="1.5" PointX="3" PointY="0.875" />
+        <EntityTypeShape EntityType="TourBookingModel.Role" Width="1.5" PointX="0.75" PointY="1.125" />
+        <EntityTypeShape EntityType="TourBookingModel.tblBooking" Width="1.5" PointX="0.75" PointY="3.75" />
+        <EntityTypeShape EntityType="TourBookingModel.tblDayActivity" Width="1.5" PointX="2.75" PointY="3.75" />
+        <EntityTypeShape EntityType="TourBookingModel.tblGallery" Width="1.5" PointX="4.75" PointY="3.75" />
+        <EntityTypeShape EntityType="TourBookingModel.tblPackage" Width="1.5" PointX="6.75" PointY="0.75" />
+        <EntityTypeShape EntityType="TourBookingModel.tblReview" Width="1.5" PointX="4.75" PointY="6.75" />
+        <AssociationConnector Association="TourBookingModel.R_10" />
+        <AssociationConnector Association="TourBookingModel.FK_tblDayActivity_tblPackage" />
+        <AssociationConnector Association="TourBookingModel.FK_tblGallery_tblPackage" />
+        <EntityTypeShape EntityType="TourBookingModel.sysdiagram" Width="1.5" PointX="0.75" PointY="7.75" />
+      </Diagram>
+    </edmx:Diagrams>
+  </edmx:Designer>
+</edmx:Edmx>
