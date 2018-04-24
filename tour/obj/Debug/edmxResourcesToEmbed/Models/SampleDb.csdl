@@ -1,0 +1,219 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Schema Namespace="TourBookingModel" Alias="Self" annotation:UseStrongSpatialTypes="false" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm">
+  <EntityType Name="Booking">
+    <Key>
+      <PropertyRef Name="BookID" />
+    </Key>
+    <Property Name="BookID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="TourID" Type="Int32" />
+    <Property Name="UserName" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Name="ContactNo" Type="Int32" />
+    <Property Name="EmailID" Type="String" MaxLength="150" FixedLength="false" Unicode="false" />
+    <Property Name="Remark" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Name="DetailInfo" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+    <NavigationProperty Name="Package" Relationship="Self.FK_Booking_Package" FromRole="Booking" ToRole="Package" />
+  </EntityType>
+  <EntityType Name="DayActivity">
+    <Key>
+      <PropertyRef Name="DayId" />
+    </Key>
+    <Property Name="DayId" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="DayTitle" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Name="tourID" Type="Int32" />
+    <Property Name="Description" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <Property Name="Active" Type="Boolean" />
+    <Property Name="Extra" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Name="ExtraTwo" Type="Binary" MaxLength="50" FixedLength="false" />
+    <NavigationProperty Name="Package" Relationship="Self.FK_DayActivity_Package" FromRole="DayActivity" ToRole="Package" />
+  </EntityType>
+  <EntityType Name="Gallery">
+    <Key>
+      <PropertyRef Name="GalleryID" />
+    </Key>
+    <Property Name="GalleryID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="TourID" Type="Int32" />
+    <Property Name="Description" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <Property Name="Active" Type="Boolean" />
+    <Property Name="Extra" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Name="ExtrTwo" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+    <NavigationProperty Name="Package" Relationship="Self.FK_Gallery_Package" FromRole="Gallery" ToRole="Package" />
+  </EntityType>
+  <EntityType Name="Login">
+    <Key>
+      <PropertyRef Name="id" />
+    </Key>
+    <Property Name="id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="username" Type="String" MaxLength="50" FixedLength="false" Unicode="false" Nullable="false" />
+    <Property Name="password" Type="String" MaxLength="50" FixedLength="false" Unicode="false" Nullable="false" />
+    <Property Name="role_id" Type="Int32" Nullable="false" />
+    <NavigationProperty Name="Role" Relationship="Self.R_10" FromRole="Login" ToRole="Role" />
+  </EntityType>
+  <EntityType Name="Package">
+    <Key>
+      <PropertyRef Name="TourID" />
+    </Key>
+    <Property Name="TourID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="TourName" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Name="PackageImage" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <Property Name="PackageDetails" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <Property Name="OfferInclude" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <Property Name="OfferExclude" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <Property Name="StartDate" Type="DateTime" Precision="0" />
+    <Property Name="EndDate" Type="DateTime" Precision="0" />
+    <Property Name="Status" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Name="Price" Type="Int32" />
+    <Property Name="Extra" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Name="ExtraTwo" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+    <NavigationProperty Name="Bookings" Relationship="Self.FK_Booking_Package" FromRole="Package" ToRole="Booking" />
+    <NavigationProperty Name="DayActivities" Relationship="Self.FK_DayActivity_Package" FromRole="Package" ToRole="DayActivity" />
+    <NavigationProperty Name="Galleries" Relationship="Self.FK_Gallery_Package" FromRole="Package" ToRole="Gallery" />
+  </EntityType>
+  <EntityType Name="Role">
+    <Key>
+      <PropertyRef Name="role_id" />
+    </Key>
+    <Property Name="role_id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="role1" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" Nullable="false" />
+    <NavigationProperty Name="Logins" Relationship="Self.R_10" FromRole="Role" ToRole="Login" />
+  </EntityType>
+  <EntityType Name="sysdiagram">
+    <Key>
+      <PropertyRef Name="diagram_id" />
+    </Key>
+    <Property Name="name" Type="String" MaxLength="128" FixedLength="false" Unicode="true" Nullable="false" />
+    <Property Name="principal_id" Type="Int32" Nullable="false" />
+    <Property Name="diagram_id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="version" Type="Int32" />
+    <Property Name="definition" Type="Binary" MaxLength="Max" FixedLength="false" />
+  </EntityType>
+  <EntityType Name="tblBooking">
+    <Key>
+      <PropertyRef Name="BookingId" />
+    </Key>
+    <Property Name="BookingId" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="TourId" Type="Int32" Nullable="false" />
+    <Property Name="UserName" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Name="Contact" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Name="Email" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Name="Remark" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Name="DetailInfo" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+  </EntityType>
+  <EntityType Name="tblDayActivity">
+    <Key>
+      <PropertyRef Name="DayID" />
+    </Key>
+    <Property Name="DayID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="DayTitle" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Name="Tour_ID" Type="Int32" />
+    <Property Name="Description" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <Property Name="Active" Type="Boolean" />
+    <Property Name="Extra" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Name="ExtraTwo" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+  </EntityType>
+  <EntityType Name="tblPackage">
+    <Key>
+      <PropertyRef Name="Tour_ID" />
+    </Key>
+    <Property Name="Tour_ID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="Tour_Name" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Name="Package_Image" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <Property Name="Packagedetails" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <Property Name="OfferInclude" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <Property Name="OfferExclude" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <Property Name="StartDate" Type="DateTime" Precision="0" />
+    <Property Name="EndDate" Type="DateTime" Precision="0" />
+    <Property Name="Status" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Name="Price" Type="Int32" />
+    <Property Name="Extra" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Name="Extratwo" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+  </EntityType>
+  <EntityType Name="tblReview">
+    <Key>
+      <PropertyRef Name="UserID" />
+    </Key>
+    <Property Name="UserID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="UserName" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Name="Review" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <Property Name="Tour_ID" Type="Int32" />
+    <Property Name="Extra" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+  </EntityType>
+  <Association Name="FK_Booking_Package">
+    <End Role="Package" Type="Self.Package" Multiplicity="0..1" />
+    <End Role="Booking" Type="Self.Booking" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Package">
+        <PropertyRef Name="TourID" />
+      </Principal>
+      <Dependent Role="Booking">
+        <PropertyRef Name="TourID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_DayActivity_Package">
+    <End Role="Package" Type="Self.Package" Multiplicity="0..1" />
+    <End Role="DayActivity" Type="Self.DayActivity" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Package">
+        <PropertyRef Name="TourID" />
+      </Principal>
+      <Dependent Role="DayActivity">
+        <PropertyRef Name="tourID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_Gallery_Package">
+    <End Role="Package" Type="Self.Package" Multiplicity="0..1" />
+    <End Role="Gallery" Type="Self.Gallery" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Package">
+        <PropertyRef Name="TourID" />
+      </Principal>
+      <Dependent Role="Gallery">
+        <PropertyRef Name="TourID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="R_10">
+    <End Role="Role" Type="Self.Role" Multiplicity="1">
+      <OnDelete Action="Cascade" />
+    </End>
+    <End Role="Login" Type="Self.Login" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Role">
+        <PropertyRef Name="role_id" />
+      </Principal>
+      <Dependent Role="Login">
+        <PropertyRef Name="role_id" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <EntityContainer Name="TourBookingEntitiy" annotation:LazyLoadingEnabled="true">
+    <EntitySet Name="Bookings" EntityType="Self.Booking" />
+    <EntitySet Name="DayActivities" EntityType="Self.DayActivity" />
+    <EntitySet Name="Galleries" EntityType="Self.Gallery" />
+    <EntitySet Name="Logins" EntityType="Self.Login" />
+    <EntitySet Name="Packages" EntityType="Self.Package" />
+    <EntitySet Name="Roles" EntityType="Self.Role" />
+    <EntitySet Name="sysdiagrams" EntityType="Self.sysdiagram" />
+    <EntitySet Name="tblBookings" EntityType="Self.tblBooking" />
+    <EntitySet Name="tblDayActivities" EntityType="Self.tblDayActivity" />
+    <EntitySet Name="tblPackages" EntityType="Self.tblPackage" />
+    <EntitySet Name="tblReviews" EntityType="Self.tblReview" />
+    <AssociationSet Name="FK_Booking_Package" Association="Self.FK_Booking_Package">
+      <End Role="Package" EntitySet="Packages" />
+      <End Role="Booking" EntitySet="Bookings" />
+    </AssociationSet>
+    <AssociationSet Name="FK_DayActivity_Package" Association="Self.FK_DayActivity_Package">
+      <End Role="Package" EntitySet="Packages" />
+      <End Role="DayActivity" EntitySet="DayActivities" />
+    </AssociationSet>
+    <AssociationSet Name="FK_Gallery_Package" Association="Self.FK_Gallery_Package">
+      <End Role="Package" EntitySet="Packages" />
+      <End Role="Gallery" EntitySet="Galleries" />
+    </AssociationSet>
+    <AssociationSet Name="R_10" Association="Self.R_10">
+      <End Role="Role" EntitySet="Roles" />
+      <End Role="Login" EntitySet="Logins" />
+    </AssociationSet>
+  </EntityContainer>
+</Schema>

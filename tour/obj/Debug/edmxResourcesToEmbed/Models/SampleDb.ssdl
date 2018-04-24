@@ -1,5 +1,40 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
 <Schema Namespace="TourBookingModel.Store" Provider="System.Data.SqlClient" ProviderManifestToken="2012" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
+  <EntityType Name="Booking">
+    <Key>
+      <PropertyRef Name="BookID" />
+    </Key>
+    <Property Name="BookID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="TourID" Type="int" />
+    <Property Name="UserName" Type="nvarchar" MaxLength="50" />
+    <Property Name="ContactNo" Type="int" />
+    <Property Name="EmailID" Type="varchar" MaxLength="150" />
+    <Property Name="Remark" Type="nvarchar" MaxLength="50" />
+    <Property Name="DetailInfo" Type="nvarchar" MaxLength="50" />
+  </EntityType>
+  <EntityType Name="DayActivity">
+    <Key>
+      <PropertyRef Name="DayId" />
+    </Key>
+    <Property Name="DayId" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="DayTitle" Type="nvarchar" MaxLength="50" />
+    <Property Name="tourID" Type="int" />
+    <Property Name="Description" Type="nvarchar(max)" />
+    <Property Name="Active" Type="bit" />
+    <Property Name="Extra" Type="nvarchar" MaxLength="50" />
+    <Property Name="ExtraTwo" Type="varbinary" MaxLength="50" />
+  </EntityType>
+  <EntityType Name="Gallery">
+    <Key>
+      <PropertyRef Name="GalleryID" />
+    </Key>
+    <Property Name="GalleryID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="TourID" Type="int" />
+    <Property Name="Description" Type="nvarchar(max)" />
+    <Property Name="Active" Type="bit" />
+    <Property Name="Extra" Type="nvarchar" MaxLength="50" />
+    <Property Name="ExtrTwo" Type="nvarchar" MaxLength="50" />
+  </EntityType>
   <EntityType Name="Login">
     <Key>
       <PropertyRef Name="id" />
@@ -9,12 +44,39 @@
     <Property Name="password" Type="varchar" MaxLength="50" Nullable="false" />
     <Property Name="role_id" Type="int" Nullable="false" />
   </EntityType>
+  <EntityType Name="Package">
+    <Key>
+      <PropertyRef Name="TourID" />
+    </Key>
+    <Property Name="TourID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="TourName" Type="nvarchar" MaxLength="50" />
+    <Property Name="PackageImage" Type="nvarchar(max)" />
+    <Property Name="PackageDetails" Type="nvarchar(max)" />
+    <Property Name="OfferInclude" Type="nvarchar(max)" />
+    <Property Name="OfferExclude" Type="nvarchar(max)" />
+    <Property Name="StartDate" Type="date" />
+    <Property Name="EndDate" Type="date" />
+    <Property Name="Status" Type="nvarchar" MaxLength="50" />
+    <Property Name="Price" Type="int" />
+    <Property Name="Extra" Type="nvarchar" MaxLength="50" />
+    <Property Name="ExtraTwo" Type="nvarchar" MaxLength="50" />
+  </EntityType>
   <EntityType Name="Role">
     <Key>
       <PropertyRef Name="role_id" />
     </Key>
     <Property Name="role_id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
     <Property Name="role" Type="nvarchar(max)" Nullable="false" />
+  </EntityType>
+  <EntityType Name="sysdiagrams">
+    <Key>
+      <PropertyRef Name="diagram_id" />
+    </Key>
+    <Property Name="name" Type="nvarchar" MaxLength="128" Nullable="false" />
+    <Property Name="principal_id" Type="int" Nullable="false" />
+    <Property Name="diagram_id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="version" Type="int" />
+    <Property Name="definition" Type="varbinary(max)" />
   </EntityType>
   <EntityType Name="tblBooking">
     <Key>
@@ -34,17 +96,6 @@
     </Key>
     <Property Name="DayID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
     <Property Name="DayTitle" Type="nvarchar" MaxLength="50" />
-    <Property Name="Tour_ID" Type="int" />
-    <Property Name="Description" Type="nvarchar(max)" />
-    <Property Name="Active" Type="bit" />
-    <Property Name="Extra" Type="nvarchar" MaxLength="50" />
-    <Property Name="ExtraTwo" Type="nvarchar" MaxLength="50" />
-  </EntityType>
-  <EntityType Name="tblGallery">
-    <Key>
-      <PropertyRef Name="Image_ID" />
-    </Key>
-    <Property Name="Image_ID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
     <Property Name="Tour_ID" Type="int" />
     <Property Name="Description" Type="nvarchar(max)" />
     <Property Name="Active" Type="bit" />
@@ -78,27 +129,39 @@
     <Property Name="Tour_ID" Type="int" />
     <Property Name="Extra" Type="nvarchar" MaxLength="50" />
   </EntityType>
-  <Association Name="FK_tblDayActivity_tblPackage">
-    <End Role="tblPackage" Type="Self.tblPackage" Multiplicity="0..1" />
-    <End Role="tblDayActivity" Type="Self.tblDayActivity" Multiplicity="*" />
+  <Association Name="FK_Booking_Package">
+    <End Role="Package" Type="Self.Package" Multiplicity="0..1" />
+    <End Role="Booking" Type="Self.Booking" Multiplicity="*" />
     <ReferentialConstraint>
-      <Principal Role="tblPackage">
-        <PropertyRef Name="Tour_ID" />
+      <Principal Role="Package">
+        <PropertyRef Name="TourID" />
       </Principal>
-      <Dependent Role="tblDayActivity">
-        <PropertyRef Name="Tour_ID" />
+      <Dependent Role="Booking">
+        <PropertyRef Name="TourID" />
       </Dependent>
     </ReferentialConstraint>
   </Association>
-  <Association Name="FK_tblGallery_tblPackage">
-    <End Role="tblPackage" Type="Self.tblPackage" Multiplicity="0..1" />
-    <End Role="tblGallery" Type="Self.tblGallery" Multiplicity="*" />
+  <Association Name="FK_DayActivity_Package">
+    <End Role="Package" Type="Self.Package" Multiplicity="0..1" />
+    <End Role="DayActivity" Type="Self.DayActivity" Multiplicity="*" />
     <ReferentialConstraint>
-      <Principal Role="tblPackage">
-        <PropertyRef Name="Tour_ID" />
+      <Principal Role="Package">
+        <PropertyRef Name="TourID" />
       </Principal>
-      <Dependent Role="tblGallery">
-        <PropertyRef Name="Tour_ID" />
+      <Dependent Role="DayActivity">
+        <PropertyRef Name="tourID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_Gallery_Package">
+    <End Role="Package" Type="Self.Package" Multiplicity="0..1" />
+    <End Role="Gallery" Type="Self.Gallery" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Package">
+        <PropertyRef Name="TourID" />
+      </Principal>
+      <Dependent Role="Gallery">
+        <PropertyRef Name="TourID" />
       </Dependent>
     </ReferentialConstraint>
   </Association>
@@ -116,44 +179,29 @@
       </Dependent>
     </ReferentialConstraint>
   </Association>
-  <Function Name="DbBookingSelect" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
-    <Parameter Name="UserName" Type="nvarchar" Mode="In" />
-  </Function>
-  <Function Name="DbDayActivitySelect" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo" />
-  <Function Name="DbDayActivitySelectPac" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
-    <Parameter Name="Tour_Id" Type="int" Mode="In" />
-  </Function>
-  <Function Name="DbGallerySelect" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo" />
-  <Function Name="DbGallerySelectPac" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
-    <Parameter Name="Tour_Id" Type="int" Mode="In" />
-  </Function>
-  <Function Name="DbPackageSelect" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo" />
-  <Function Name="DbPackageSelectPac" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
-    <Parameter Name="Tour_Id" Type="int" Mode="In" />
-  </Function>
-  <Function Name="DbRevieSelect" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo" />
-  <Function Name="DbReviewSelectPac" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
-    <Parameter Name="Tour_Id" Type="int" Mode="In" />
-  </Function>
-  <Function Name="LoginByUsernamePassword" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
-    <Parameter Name="username" Type="varchar" Mode="In" />
-    <Parameter Name="password" Type="varchar" Mode="In" />
-  </Function>
   <EntityContainer Name="TourBookingModelStoreContainer">
+    <EntitySet Name="Booking" EntityType="Self.Booking" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="DayActivity" EntityType="Self.DayActivity" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="Gallery" EntityType="Self.Gallery" Schema="dbo" store:Type="Tables" />
     <EntitySet Name="Login" EntityType="Self.Login" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="Package" EntityType="Self.Package" Schema="dbo" store:Type="Tables" />
     <EntitySet Name="Role" EntityType="Self.Role" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="sysdiagrams" EntityType="Self.sysdiagrams" Schema="dbo" store:Type="Tables" />
     <EntitySet Name="tblBooking" EntityType="Self.tblBooking" Schema="dbo" store:Type="Tables" />
     <EntitySet Name="tblDayActivity" EntityType="Self.tblDayActivity" Schema="dbo" store:Type="Tables" />
-    <EntitySet Name="tblGallery" EntityType="Self.tblGallery" Schema="dbo" store:Type="Tables" />
     <EntitySet Name="tblPackage" EntityType="Self.tblPackage" Schema="dbo" store:Type="Tables" />
     <EntitySet Name="tblReview" EntityType="Self.tblReview" Schema="dbo" store:Type="Tables" />
-    <AssociationSet Name="FK_tblDayActivity_tblPackage" Association="Self.FK_tblDayActivity_tblPackage">
-      <End Role="tblPackage" EntitySet="tblPackage" />
-      <End Role="tblDayActivity" EntitySet="tblDayActivity" />
+    <AssociationSet Name="FK_Booking_Package" Association="Self.FK_Booking_Package">
+      <End Role="Package" EntitySet="Package" />
+      <End Role="Booking" EntitySet="Booking" />
     </AssociationSet>
-    <AssociationSet Name="FK_tblGallery_tblPackage" Association="Self.FK_tblGallery_tblPackage">
-      <End Role="tblPackage" EntitySet="tblPackage" />
-      <End Role="tblGallery" EntitySet="tblGallery" />
+    <AssociationSet Name="FK_DayActivity_Package" Association="Self.FK_DayActivity_Package">
+      <End Role="Package" EntitySet="Package" />
+      <End Role="DayActivity" EntitySet="DayActivity" />
+    </AssociationSet>
+    <AssociationSet Name="FK_Gallery_Package" Association="Self.FK_Gallery_Package">
+      <End Role="Package" EntitySet="Package" />
+      <End Role="Gallery" EntitySet="Gallery" />
     </AssociationSet>
     <AssociationSet Name="R_10" Association="Self.R_10">
       <End Role="Role" EntitySet="Role" />
